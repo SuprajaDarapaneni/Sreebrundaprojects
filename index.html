@@ -7,11 +7,9 @@
   <meta name="description" content="Green Gold Valley by Sree Brunda Projects – Premium gated farmland near Amaravati ORR at ₹3,699/- per sq. yard. Book your plot today for a smart investment.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
     body { background: #f8faf9; color: #1a1a1a; overflow-x: hidden; }
-
     /* HEADER */
     .header {
       position: fixed; top: 0; left: 0; width: 100%;
@@ -19,110 +17,84 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 6%; height: 85px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 1000;
-      transition: background 0.3s;
+      transition: background 0.3s, height 0.3s;
     }
-
     .header.scrolled { background: #ffffff; }
-
     .header .logo img { height: 80px; width: auto; transition: transform 0.3s; }
     .header .logo img:hover { transform: scale(1.1); }
-
     .navbar {
-      display: flex; gap: 30px;
+      display: flex; align-items: center; gap: 40px;
+      transition: all 0.3s ease;
     }
-
     .navbar a {
       text-decoration: none; color: #1a1a1a; font-weight: 600; font-size: 1.1rem;
       position: relative; transition: color 0.3s ease;
-      padding: 10px 0;
+      padding: 10px 15px; border-radius: 25px;
     }
-
     .navbar a::after {
       content: ''; position: absolute; width: 0; height: 3px;
-      bottom: 0; left: 0; background: #2ecc71; transition: width 0.4s ease;
-      border-radius: 2px;
+      bottom: 0; left: 50%; background: #2ecc71; transition: all 0.4s ease;
+      transform: translateX(-50%); border-radius: 2px;
     }
-
     .navbar a:hover, .navbar a.active {
-      color: #2ecc71;
+      color: #2ecc71; background: rgba(46,204,113,0.1);
     }
-
     .navbar a:hover::after, .navbar a.active::after {
-      width: 100%;
+      width: 50%;
     }
-
+    .header-contact {
+      display: flex; gap: 15px;
+    }
     .header-contact a {
-      margin-left: 20px; text-decoration: none;
-      padding: 12px 25px; border-radius: 50px;
+      text-decoration: none; padding: 12px 25px; border-radius: 50px;
       background: #2ecc71; color: #fff; font-weight: 600; font-size: 1rem;
       transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;
     }
-
     .header-contact .whatsapp { background: #25D366; }
     .header-contact a:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-      z-index: 1001;
+      display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001;
+      padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.2);
     }
-
     .hamburger span {
-      width: 32px;
-      height: 4px;
-      background: #1a1a1a;
-      border-radius: 3px;
-      transition: all 0.3s;
+      width: 32px; height: 4px; background: #1a1a1a; border-radius: 3px; transition: all 0.3s;
     }
-
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
-
     /* HERO */
     .hero {
       height: 100vh; background: url('background.jpeg') center/cover no-repeat fixed;
       display: flex; justify-content: center; align-items: center; text-align: center;
       position: relative; overflow: hidden;
     }
-
     .hero::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
     }
-
     .hero-content {
       position: relative; z-index: 1; animation: fadeInUp 1.5s ease;
     }
-
     .hero h1 {
       font-size: 4rem; color: #fff; font-weight: 700; font-family: 'Playfair Display', serif;
       margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
-
     .hero p {
       font-size: 1.4rem; color: #e6f0ea; font-weight: 300; margin-bottom: 35px;
       line-height: 1.6;
     }
-
     .btn {
       background: #2ecc71; color: #fff; padding: 15px 35px; border-radius: 50px;
       text-decoration: none; font-weight: 600; font-size: 1.2rem; transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: inline-block;
     }
-
     .btn:hover {
       background: #27ae60; transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     .btn.loading {
       opacity: 0.7; cursor: not-allowed;
     }
-
     .pulse { animation: pulse 2s infinite; }
-
     /* SECTIONS */
     .section { padding: 120px 8%; text-align: center; background: #fff; }
     .section:nth-child(even) { background: #f8faf9; }
@@ -132,42 +104,34 @@
     }
     .section p { font-size: 1.2rem; margin-bottom: 25px; line-height: 1.7; }
     .highlight { color: #2ecc71; font-weight: 600; }
-
     /* CARDS */
     .cards {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px; margin-top: 40px;
     }
-
     .card {
       padding: 30px; background: #fff; border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.1); font-size: 1.1rem; font-weight: 500;
       transition: all 0.4s ease; opacity: 0; transform: translateY(40px);
       border-left: 5px solid #2ecc71; position: relative; overflow: hidden;
     }
-
     .card::before {
       content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0;
       background: rgba(46,204,113,0.1); transition: height 0.4s ease;
     }
-
     .card:hover::before { height: 100%; }
     .card.show { opacity: 1; transform: translateY(0); }
     .card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
-
     /* GALLERY */
     .gallery {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 25px;
     }
-
     .gallery img {
       width: 100%; border-radius: 20px; transition: all 0.4s ease;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1); object-fit: cover; height: 250px;
     }
-
     .gallery img:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-
     /* CONTACT */
     .contact-section { background: linear-gradient(135deg, #2ecc71, #27ae60); color: #fff; }
     .contact-form {
@@ -175,71 +139,73 @@
       background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       position: relative;
     }
-
     .contact-form input, .contact-form textarea {
       padding: 15px; border: none; border-radius: 10px; font-size: 1.1rem;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;
     }
-
     .contact-form input:focus, .contact-form textarea:focus {
       outline: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transform: translateY(-2px);
     }
-
     .contact-form input:invalid:not(:placeholder-shown), .contact-form textarea:invalid:not(:placeholder-shown) {
       border: 2px solid #e74c3c;
     }
-
     .contact-form .success-message {
       display: none; color: #2ecc71; font-weight: 600; text-align: center;
       padding: 10px; background: rgba(46,204,113,0.1); border-radius: 10px;
     }
-
     .contact-form.success .success-message {
       display: block;
     }
-
     .contact-form.success input, .contact-form.success textarea, .contact-form.success button {
       display: none;
     }
-
     .map-container iframe {
       border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
-
     /* FOOTER */
     footer {
       text-align: center; padding: 30px; background: #1a1a1a; color: #e6f0ea;
       font-size: 1rem;
     }
-
     footer a { color: #2ecc71; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-
     /* ANIMATIONS */
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .header { height: auto; padding: 15px 5%; }
+    @media (max-width: 1024px) {
+      .navbar { gap: 20px; }
+      .header-contact { flex-direction: column; align-items: center; }
+      .header-contact a { width: 200px; text-align: center; }
+    }
+    @media (max-width: 1068px) {
+      .header { height: auto; padding: 15px 5%; flex-wrap: wrap; }
       .navbar {
         flex-direction: column; align-items: center; width: 100%; display: none;
-        background: #fff; padding: 20px 0; position: absolute; top: 85px; left: 0;
+        background: #fff; padding: 20px 0; position: absolute; top: 100%; left: 0;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 1000;
+        transform: translateY(-100%); transition: transform 0.3s ease;
       }
-      .navbar.active { display: flex; }
+      .navbar.active {
+        display: flex; transform: translateY(0);
+      }
       .hamburger { display: flex; }
-      .header-contact { display: flex; flex-direction: column; gap: 15px; width: 100%; margin-top: 20px; align-items: center; }
-      .header-contact a { width: 85%; text-align: center; }
+      .header-contact { margin-top: 15px; width: 100%; }
       .hero h1 { font-size: 2.8rem; }
       .hero p { font-size: 1.1rem; }
       .section { padding: 80px 5%; }
       .section h2 { font-size: 2.2rem; }
       .cards { grid-template-columns: 1fr; }
     }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .btn { padding: 12px 25px; font-size: 1rem; }
+      .contact-form { padding: 20px; }
+      .map-container iframe { height: 300px; }
+    }
   </style>
 </head>
-
 <body>
   <!-- HEADER -->
   <header class="header">
@@ -251,6 +217,8 @@
       <a href="#home" class="active">Home</a>
       <a href="#about">About Us</a>
       <a href="#projects">Projects</a>
+      <!-- <a href="#location">Location</a> -->
+      <!-- <a href="#why">Why Choose Us</a> -->
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
       <div class="header-contact">
@@ -261,7 +229,6 @@
       </div>
     </nav>
   </header>
-
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-content">
@@ -270,14 +237,12 @@
       <a href="#contact" class="btn pulse">Book a Site Visit</a>
     </div>
   </section>
-
   <!-- ABOUT -->
   <section id="about" class="section">
     <h2>About Us</h2>
     <p>At <span class="highlight">Sree Brunda Projects</span>, we craft exceptional <span class="highlight">lifestyle investments</span> that blend nature and value.</p>
     <p><strong>Green Gold Valley</strong> offers premium farmland near Amaravati ORR, designed for <span class="highlight">sustainability, connectivity, and growth</span>.</p>
   </section>
-
   <!-- PROJECTS -->
   <section id="projects" class="section">
     <h2>Project Highlights</h2>
@@ -290,7 +255,6 @@
       <div class="card">🤽‍♀ Children’s Park & Recreational Spaces</div>
     </div>
   </section>
-
   <!-- LOCATION -->
   <section id="location" class="section">
     <h2>Location Highlights</h2>
@@ -303,7 +267,6 @@
       <div class="card">🚖 25 mins to Gannavaram Airport</div>
     </div>
   </section>
-
   <!-- WHY CHOOSE US -->
   <section id="why" class="section">
     <h2>Why Choose Green Gold Valley?</h2>
@@ -314,7 +277,6 @@
       <div class="card">📍 Located in Krishnavaram (Kommuru), 2 km from Mallavalli Industrial Area</div>
     </div>
   </section>
-
   <!-- GALLERY -->
   <section id="gallery" class="section">
     <h2>Project Gallery</h2>
@@ -325,7 +287,6 @@
       <img src="projectimage3.jpg" alt="Farm Plot Image 4">
     </div>
   </section>
-
   <!-- CONTACT -->
   <section id="contact" class="section contact-section">
     <h2>Book Your Plot Now</h2>
@@ -345,12 +306,10 @@
         width="100%" height="500" style="border:0;" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
-
   <!-- FOOTER -->
   <footer>
     <p>© 2025 <a href="#home">Sree Brunda Projects</a> | All Rights Reserved</p>
   </footer>
-
   <!-- SCRIPT -->
   <script>
     const toggle = document.getElementById('menu-toggle');
@@ -358,17 +317,14 @@
     const header = document.querySelector('.header');
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
-
     // Toggle mobile menu
     toggle.addEventListener('click', () => {
       navbar.classList.toggle('active');
       toggle.classList.toggle('active');
     });
-
     // Active link highlighting
     const navLinks = document.querySelectorAll('.navbar a:not(.header-contact a)');
     const sections = document.querySelectorAll('section');
-
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
@@ -377,14 +333,12 @@
           current = section.getAttribute('id');
         }
       });
-
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').slice(1) === current) {
           link.classList.add('active');
         }
       });
-
       // Header scroll effect
       if (window.pageYOffset > 50) {
         header.classList.add('scrolled');
@@ -392,7 +346,6 @@
         header.classList.remove('scrolled');
       }
     });
-
     // Intersection Observer for animations
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -405,11 +358,9 @@
         }
       });
     }, { threshold: 0.2 });
-
     document.querySelectorAll('.cards').forEach(cardSection => {
       observer.observe(cardSection);
     });
-
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -423,48 +374,36 @@
         }
       });
     });
-
     // Form submission to WhatsApp
-
-
-  form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (name && phone.match(/^[0-9]{10}$/)) {
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Sending...';
-
-    const rawMessage = 
-  `New Inquiry from Green Gold Valley Website:\n` +
-  `Name: ${name}\n` +
-  `Phone: ${phone}\n` +
-  `Message: ${message || 'No message provided'}`;
-
-const whatsappMessage = encodeURIComponent(rawMessage);
-const whatsappUrl = `https://api.whatsapp.com/send?phone=919553783239&text=${whatsappMessage}`;
-window.open(whatsappUrl, '_blank');
-
-
-    setTimeout(() => {
-      form.classList.add('success');
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-        form.reset();
-        form.classList.remove('success');
-        submitBtn.classList.remove('loading');
-        submitBtn.textContent = 'Submit';
-      }, 1500);
-    }, 500);
-  } else {
-    alert('Please enter a valid name and 10-digit phone number.');
-  }
-});
-
-</script>
-
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (name && phone.match(/^[0-9]{10}$/)) {
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Sending...';
+        const rawMessage =
+          `New Inquiry from Green Gold Valley Website:\n` +
+          `Name: ${name}\n` +
+          `Phone: ${phone}\n` +
+          `Message: ${message || 'No message provided'}`;
+        const whatsappMessage = encodeURIComponent(rawMessage);
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=919553783239&text=${whatsappMessage}`;
+        setTimeout(() => {
+          form.classList.add('success');
+          setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+            form.reset();
+            form.classList.remove('success');
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Submit';
+          }, 1500);
+        }, 500);
+      } else {
+        alert('Please enter a valid name and 10-digit phone number.');
+      }
+    });
   </script>
 </body>
 </html>
