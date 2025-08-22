@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Details | Sree Brunda Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #f8faf9;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    header {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      padding: 50px 5%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(39, 174, 96, 0.5);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      padding: 70px 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 38px rgba(39, 174, 96, 0.3);
+    }
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-bottom: 2px solid #2ecc71;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    .project-content {
+      padding: 28px 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-content h2 {
+      font-size: 1.75rem;
+      color: #27ae60;
+      margin-bottom: 18px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .project-content p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 28px;
+      flex-grow: 1;
+      line-height: 1.45;
+    }
+    .project-content a {
+      text-decoration: none;
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 14px rgba(39, 174, 96, 0.45);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      align-self: flex-start;
+      user-select: none;
+    }
+    .project-content a:hover,
+    .project-content a:focus {
+      background: linear-gradient(135deg, #27ae60, #219150);
+      box-shadow: 0 10px 22px rgba(33, 145, 80, 0.7);
+      outline: none;
+    }
+
+    section#contact {
+      max-width: 800px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    section#contact h2 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      color: #27ae60;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    section#contact p.highlight {
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+      color: #2ecc71;
+    }
+    section#contact p.highlight a {
+      color: #1b7a28;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .contact-form {
+      max-width: 100%;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      text-align: left;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="tel"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1.8px solid #ddd;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    .contact-form input[type="text"]:focus,
+    .contact-form input[type="tel"]:focus,
+    .contact-form textarea:focus {
+      border-color: #27ae60;
+      outline: none;
+      box-shadow: 0 0 6px 2px rgba(39, 174, 96, 0.4);
+    }
+    .contact-form button.btn {
+      align-self: flex-start;
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.55);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .contact-form button.btn:hover,
+    .contact-form button.btn:focus {
+      background: linear-gradient(135deg, #27ae60, #1b7a28);
+      box-shadow: 0 12px 28px rgba(27, 122, 40, 0.75);
+      outline: none;
+    }
+    .success-message {
+      font-size: 1rem;
+      color: #27ae60;
+      font-weight: 600;
+      margin-top: 16px;
+      display: none;
+    }
+    .contact-form.success .success-message {
+      display: block;
+      animation: fadeIn 0.6s ease forwards;
+    }
+    .error-message {
+      font-size: 0.9rem;
+      color: #e74c3c;
+      margin-top: -14px;
+      margin-bottom: 12px;
+      display: none;
+    }
+    .map-container iframe {
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      width: 100%;
+      height: 450px;
+      border: none;
+      margin-top: 30px;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #e6f0ea;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      user-select: none;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.05);
+    }
+    footer a {
+      color: #2ecc71;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.1rem; }
+      .project-content h2 { font-size: 1.4rem; }
+      section#contact h2 { font-size: 2rem; }
+      .contact-form button.btn {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Featured Projects</h1>
+    <p>Explore our signature developments designed for value, growth &amp; green living.</p>
+  </header>
+
+  <main class="projects-container">
+    
+    <!-- Project 1 -->
+    <div class="project-card" tabindex="0" aria-label="Green Gold Valley Project Card">
+      <img src="project image1.jpg" alt="Green Gold Valley farmland project image">
+      <div class="project-content">
+        <h2>Green Gold Valley</h2>
+        <p>Located near Amaravati ORR, this premium farmland project offers lush mango orchards, modern amenities, and excellent connectivity — ideal for smart investors.</p>
+        <a href="#contact" aria-label="Enquire about Green Gold Valley">Enquire Now</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" tabindex="0" aria-label="Nature’s Nest Project Card">
+      <img src="projectimage2.jpg" alt="Nature’s Nest gated layout project image">
+      <div class="project-content">
+        <h2>Nature’s Nest</h2>
+        <p>A serene gated layout surrounded by plantations, perfect for weekend homes or long-term investment. Strategically located near upcoming development zones.</p>
+        <a href="#contact" aria-label="Enquire about Nature’s Nest">Enquire Now</a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" tabindex="0" aria-label="Eco Farms Retreat Project Card">
+      <img src="projectimage3.jpg" alt="Eco Farms Retreat project image">
+      <div class="project-content">
+        <h2>Eco Farms Retreat</h2>
+        <p>Designed for sustainable living, this project features organic plots, water harvesting systems, and customizable eco-villas in a green-rich environment.</p>
+        <a href="#contact" aria-label="Enquire about Eco Farms Retreat">Enquire Now</a>
+      </div>
+    </div>
+
+  </main>
+
+  <section id="contact" class="section contact-section" role="region" aria-label="Contact Us">
+    <h2>Book Your Plot Now</h2>
+    <p class="highlight pulse" aria-live="polite">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i> Call: 
+      <a href="tel:+919553783239" aria-label="Call Sree Brunda Projects">+91 9553 78 3239</a> |
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp: 
+      <a href="https://wa.me/919553783239" target="_blank" rel="noopener" aria-label="WhatsApp Chat">Chat Now</a>
+    </p>
+    <form class="contact-form" id="contact-form" aria-label="Contact Form">
+      <input type="text" id="name" placeholder="Your Name" required aria-required="true" aria-label="Your Name" />
+      <input type="tel" id="phone" placeholder="Phone Number" required pattern="[0-9]{10}" aria-required="true" aria-describedby="phone-error" aria-label="Phone Number (10 digits)" />
+      <span id="phone-error" class="error-message" role="alert" aria-live="assertive">Please enter a valid 10-digit phone number.</span>
+      <textarea id="message" placeholder="Your Message" rows="6" aria-label="Your Message"></textarea>
+      <button type="submit" class="btn pulse" id="submit-btn" aria-label="Submit form">Submit</button>
+      <div class="success-message" role="alert" aria-live="polite">Message sent successfully! You'll be redirected to WhatsApp shortly.</div>
+    </form>
+    <div class="map-container" aria-label="Location map of Green Gold Valley">
+      <iframe src="https://www.google.com/maps?q=Krishnavaram%20(Kommuru),%20Mallavalli%20Industrial%20Corridor&output=embed"
+        loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Sree Brunda Projects | All Rights Reserved
+  </footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phone-error');
+  const successMessage = form.querySelector('.success-message');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = phoneInput.value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (!phone.match(/^[0-9]{10}$/)) {
+      phoneError.style.display = 'block';
+      phoneInput.focus();
+      return;
+    } else {
+      phoneError.style.display = 'none';
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Sending...';
+
+    const rawMessage = `New Inquiry from Green Gold Valley Website:\nName: ${name}\nPhone: ${phone}\nMessage: ${message || 'No message provided'}`;
+    const whatsappMessage = encodeURIComponent(rawMessage);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=919553783239&text=${whatsappMessage}`;
+
+    setTimeout(() => {
+      form.classList.add('success');
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank', 'noopener');
+        form.reset();
+        form.classList.remove('success');
+        successMessage.style.display = 'none';
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = 'Submit';
+      }, 1500);
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
