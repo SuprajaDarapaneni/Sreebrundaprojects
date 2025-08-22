@@ -243,32 +243,39 @@
     </nav>
   </header>
   <!-- HERO -->
-<section id="home" class="hero">
-  <div class="carousel">
+  <section id="home" class="hero">
+  <div class="carousel" tabindex="0" aria-label="Image Carousel">
     <div class="carousel-inner">
-       <div class="carousel-item" data-image="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" data-quote="“The best investment on Earth is earth.” — Louis Glickman">
-        <img src="background.jpeg">
+      <div class="carousel-item" data-quote="“The best investment on Earth is earth.” — Louis Glickman">
+        <img src="background.jpeg" alt="Earth investment">
       </div>
-      <div class="carousel-item active" data-image="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" data-quote="“Land is not just soil, it’s the foundation of your dreams.”">
-  <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="Modern house with garden">
-</div>
-
-<div class="carousel-item" data-image="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" data-quote="“Invest in land, they’re not making it anymore.” — Mark Twain">
-  <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Luxury home exterior">
-</div>
-
-<div class="carousel-item" data-image="https://images.unsplash.com/photo-1501183638714-8f9cd99d2ec1?auto=format&fit=crop&w=800&q=80" data-quote="“The best investment on Earth is earth.” — Louis Glickman">
-  <img src="c2.jpg" alt="Countryside farmland with trees">
-</div>
-
-<div class="carousel-item" data-image="https://images.unsplash.com/photo-1600585154264-4ad6ac1d9e19?auto=format&fit=crop&w=800&q=80" data-quote="“Owning a home is a keystone of wealth.” — Suze Orman">
-  <img src="c1.jpg" alt="Newly built modern house">
-</div>
-
-       
+      <div class="carousel-item active" data-quote="“Land is not just soil, it’s the foundation of your dreams.”">
+        <img src="background.jpeg" alt="Modern house with garden">
+      </div>
+      <div class="carousel-item" data-quote="“Invest in land, they’re not making it anymore.” — Mark Twain">
+        <img src="background.jpeg" alt="Luxury home exterior">
+      </div>
+      <div class="carousel-item" data-quote="“The best investment on Earth is earth.” — Louis Glickman">
+        <img src="background.jpeg" alt="Countryside farmland with trees">
+      </div>
+      <div class="carousel-item" data-quote="“Owning a home is a keystone of wealth.” — Suze Orman">
+        <img src="background.jpeg" alt="Newly built modern house">
+      </div>
+      <div class="carousel-item" data-quote="“Owning a home is a keystone of wealth.” — Suze Orman">
+        <img src="background.jpeg" alt="Newly built modern house">
+      </div>
     </div>
 
-    <div class="hero-content">
+    <!-- Navigation Arrows -->
+    <button class="carousel-control prev" aria-label="Previous Slide" aria-controls="carousel-inner" tabindex="0">&#10094;</button>
+    <button class="carousel-control next" aria-label="Next Slide" aria-controls="carousel-inner" tabindex="0">&#10095;</button>
+
+    <!-- Dots Navigation -->
+    <div class="carousel-dots" role="tablist" aria-label="Slide navigation">
+      <!-- dots inserted dynamically by JS -->
+    </div>
+
+    <div class="hero-content" aria-live="polite" aria-atomic="true">
       <h1>Green Gold Valley</h1>
       <p class="quote">“Land is not just soil, it’s the foundation of your dreams.”</p>
       <a href="#contact" class="btn pulse">Book a Site Visit</a>
@@ -281,7 +288,7 @@
   .hero {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 600px;
     font-family: 'Roboto', sans-serif;
     color: white;
     background: #2e7d32;
@@ -292,6 +299,7 @@
     position: relative;
     height: 100%;
     width: 100%;
+    outline: none; /* for keyboard focus */
   }
 
   /* Carousel inner */
@@ -309,12 +317,14 @@
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: 0;
   }
 
   /* Show active slide */
   .carousel-item.active {
     opacity: 1;
     position: relative;
+    z-index: 1;
   }
 
   /* Images */
@@ -322,7 +332,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6);
+    filter: brightness(0.55);
+    transition: transform 1.2s ease;
+  }
+
+  /* Slight zoom on active image */
+  .carousel-item.active img {
+    transform: scale(1.05);
   }
 
   /* Hero Content Over Carousel */
@@ -335,69 +351,234 @@
     text-align: center;
     padding: 20px;
     max-width: 90%;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+  }
+
+  .hero-content.fade-in {
+    animation: fadeInText 1s forwards;
+  }
+
+  @keyframes fadeInText {
+    to {
+      opacity: 1;
+    }
   }
 
   .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.85);
   }
 
   .quote {
     font-style: italic;
-    font-size: 1.25rem;
-    margin-bottom: 25px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    min-height: 50px; /* To avoid jump when quote changes */
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    min-height: 60px; /* To avoid jump when quote changes */
   }
 
   /* Button styles with pulse */
   .btn {
     background-color: #66bb6a;
     color: white;
-    padding: 12px 28px;
-    font-size: 1.1rem;
+    padding: 16px 36px;
+    font-size: 1.25rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    box-shadow: 0 3px 6px rgba(102, 187, 106, 0.5);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(102, 187, 106, 0.5);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     text-decoration: none;
+    display: inline-block;
   }
 
-  .btn:hover {
-    box-shadow: 0 6px 12px rgba(102, 187, 106, 0.8);
+  .btn:hover,
+  .btn:focus {
+    box-shadow: 0 8px 20px rgba(102, 187, 106, 0.9);
+    transform: scale(1.05);
+    outline: none;
   }
 
   /* Pulse Animation */
   .pulse {
-    animation: pulse-animation 2s infinite;
+    animation: pulse-animation 2.5s infinite;
   }
 
   @keyframes pulse-animation {
     0%, 100% {
-      box-shadow: 0 0 0 0 rgba(102, 187, 106, 0.7);
+      box-shadow: 0 0 0 0 rgba(102, 187, 106, 0.6);
     }
     50% {
-      box-shadow: 0 0 15px 10px rgba(102, 187, 106, 0);
+      box-shadow: 0 0 20px 15px rgba(102, 187, 106, 0);
+    }
+  }
+
+  /* Carousel Controls */
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: white;
+    background: rgba(46, 125, 50, 0.5);
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    z-index: 20;
+  }
+
+  .carousel-control:hover,
+  .carousel-control:focus {
+    background: rgba(46, 125, 50, 0.85);
+    outline: none;
+  }
+
+  .carousel-control.prev {
+    left: 15px;
+  }
+
+  .carousel-control.next {
+    right: 15px;
+  }
+
+  /* Carousel Dots */
+  .carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+  }
+
+  .carousel-dots button {
+    background-color: rgba(102, 187, 106, 0.6);
+    border: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-dots button.active,
+  .carousel-dots button:hover,
+  .carousel-dots button:focus {
+    background-color: #66bb6a;
+    outline: none;
+  }
+
+  /* Responsive font sizes */
+  @media (max-width: 768px) {
+    .hero {
+      height: 450px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .quote {
+      font-size: 1.1rem;
+      min-height: 50px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-size: 1rem;
+    }
+
+    .carousel-control {
+      font-size: 2rem;
+      padding: 0 10px;
+    }
+
+    .carousel-dots button {
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      height: 350px;
+    }
+
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+
+    .quote {
+      font-size: 1rem;
+      min-height: 45px;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      font-size: 0.9rem;
     }
   }
 </style>
 
 <script>
-  // Simple Carousel Auto Slide with dynamic quote update
-  let currentIndex = 0;
   const slides = document.querySelectorAll('.carousel-item');
   const totalSlides = slides.length;
   const quoteEl = document.querySelector('.quote');
+  const heroContent = document.querySelector('.hero-content');
+  const dotsContainer = document.querySelector('.carousel-dots');
+  const carousel = document.querySelector('.carousel');
+
+  let currentIndex = 0;
+  let autoSlideInterval;
+
+  // Create dots dynamically based on number of slides
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Slide ${i + 1}`);
+    dot.setAttribute('role', 'tab');
+    dot.addEventListener('click', () => {
+      goToSlide(i);
+      resetAutoSlide();
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = dotsContainer.querySelectorAll('button');
+
+  function updateDots(index) {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+      dot.setAttribute('aria-selected', i === index);
+      dot.setAttribute('tabindex', i === index ? '0' : '-1');
+    });
+  }
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
     });
-    // Update quote from the active slide's data-quote attribute
+
+    // Update quote from active slide's data-quote attribute
     const newQuote = slides[index].getAttribute('data-quote');
     quoteEl.textContent = newQuote;
+
+    // Trigger fade-in animation for hero content
+    heroContent.classList.remove('fade-in');
+    void heroContent.offsetWidth; // Trigger reflow to restart animation
+    heroContent.classList.add('fade-in');
+
+    updateDots(index);
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    showSlide(currentIndex);
   }
 
   function nextSlide() {
@@ -405,12 +586,56 @@
     showSlide(currentIndex);
   }
 
-  // Initial show
-  showSlide(currentIndex);
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  }
 
-  // Auto slide every 4 seconds
-  setInterval(nextSlide, 4000);
+  // Controls event listeners
+  document.querySelector('.carousel-control.next').addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  document.querySelector('.carousel-control.prev').addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  // Keyboard controls for arrows (left/right)
+  carousel.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') {
+      nextSlide();
+      resetAutoSlide();
+    } else if (e.key === 'ArrowLeft') {
+      prevSlide();
+      resetAutoSlide();
+    }
+  });
+
+  // Auto slide setup
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', stopAutoSlide);
+  carousel.addEventListener('mouseleave', startAutoSlide);
+
+  // Initial display
+  showSlide(currentIndex);
+  startAutoSlide();
 </script>
+
 
   <!-- ABOUT -->
 <section id="about" class="section about-animated">
@@ -504,6 +729,9 @@
       <img src="project image1.jpg" alt="Farm Plot Image 2">
       <img src="projectimage2.jpg" alt="Farm Plot Image 3">
       <img src="projectimage3.jpg" alt="Farm Plot Image 4">
+       <img src="i1.jpg" alt="Farm Plot Image 5">
+        <!-- <img src="i2.jpg" alt="Farm Plot Image 6"> -->
+         <img src="i3.jpg" alt="Farm Plot Image 6">
     </div>
   </section>
   <!-- CONTACT -->
