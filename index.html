@@ -216,7 +216,23 @@
     }
 
 
-    
+    .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #e8f5e9;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2e7d32;
+}
+
   </style>
 </head>
 <body>
@@ -249,11 +265,18 @@
   <div class="carousel-item" data-quote="The best investment on Earth is earth.">
     <img src="background.jpeg" alt="Earth investment">
   </div>
+
   <div class="carousel-item active" data-quote="Land is not just soil, it’s the foundation of your dreams.">
     <img src="c5.png"Modern house with garden">
   </div>
+    <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
+    <img src="i7.jpg" alt="Newly built modern house">
+  </div>
   <div class="carousel-item" data-quote="Invest in land, they’re not making it anymore.">
     <img src="i3.jpg" alt="Luxury home exterior">
+  </div>
+   <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
+    <img src="i6.jpg" alt="Newly built modern house">
   </div>
   <div class="carousel-item" data-quote="The best investment on Earth is earth.">
     <img src="i4.jpeg" alt="Countryside farmland with trees">
@@ -261,8 +284,17 @@
   <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
     <img src="c3.png" alt="Newly built modern house">
   </div>
+
   <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
+    <img src="i5.jpg" alt="Newly built modern house">
+  </div>
+    <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
     <img src="c4.png" alt="Newly built modern house">
+  </div>
+   
+  
+    <div class="carousel-item" data-quote="Owning a home is a keystone of wealth.">
+    <img src="i8.jpg" alt="Newly built modern house">
   </div>
 </div>
 
@@ -508,7 +540,7 @@
 
   @media (max-width: 480px) {
     .hero {
-      height: 350px;
+      height: 510px;
     }
 
     .hero-content h1 {
@@ -525,6 +557,101 @@
       font-size: 0.9rem;
     }
   }
+
+.site-footer {
+  background: linear-gradient(135deg, #046a38, #024e07 60%, #012d05);
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.site-footer h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #c8e6c9;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #a5d6a7;
+  margin-bottom: 25px;
+}
+
+.footer-details p {
+  margin: 10px 0;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #e0f2f1;
+}
+
+.footer-details a {
+  color: #81c784;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-details a:hover {
+  color: #c8e6c9;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #4caf50;
+  padding-top: 20px;
+  font-size: 0.95rem;
+  color: #a5d6a7;
+}
+
+.footer-bottom a {
+  color: #a5d6a7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #e8f5e9;
+  text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-footer h3 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .footer-details p {
+    font-size: 0.95rem;
+  }
+}
+
 </style>
 
 <script>
@@ -679,14 +806,14 @@
         <div class="card">🚧 Grand Entrance Arch with Designer Gate</div>
         <div class="card">🧱 Compound Wall Around Entire Layout</div>
         <div class="card">💡 Electricity with Street Lighting</div>
-        <div class="card">🧹 Underground Drainage System</div>
+        <!-- <div class="card">🧹 Underground Drainage System</div> -->
         <div class="card">🏠 Customizable Farmhouse Construction</div>
         <div class="card">📹 24×7 Security with CCTV Surveillance</div>
         <div class="card">🎠 Children’s Park & Recreation Area</div>
         <div class="card">🧭 100% Vastu-Compliant Plots</div>
-        <div class="card">✅ APCRDA Approved Layout</div>
+        <!-- <div class="card">✅ APCRDA Approved Layout</div> -->
         <div class="card">📄 100% Clear Title & Legally Vetted Land</div>
-        <div class="card">🚿 Drip Irrigation for Sustainable Plantations</div>
+        <!-- <div class="card">🚿 Drip Irrigation for Sustainable Plantations</div> -->
       </div>
     </div>
   </div>
@@ -702,16 +829,27 @@
 
   <!-- LOCATION -->
   <section id="location" class="section">
-    <h2>Location Highlights</h2>
-    <div class="cards">
-      <div class="card">🚘 Just 1 km from Outer Ring Road (ORR)</div>
-      <div class="card">🚖 2 km from Mallavalli Industrial Corridor</div>
-      <div class="card">🚘 10 mins drive to NH-16, Veeravalli</div>
-      <div class="card">🚙 20 mins to Vijayawada West Bypass</div>
-      <div class="card">🚕 20 mins to Siddhartha Medical College</div>
-      <div class="card">🚖 25 mins to Gannavaram Airport</div>
-    </div>
-  </section>
+  <h2>Location Highlights</h2>
+  <div class="cards">
+    <div class="card">🏭 2 km from Mallavalli Industrial Area (1600+ Acres)</div>
+    <div class="card">🚛 10 mins to Ashok Leyland Company</div>
+    <div class="card">🚘 Just 1.5 km from Proposed Outer Ring Road (ORR)</div>
+    <div class="card">🛣️ 15 mins to NH-16 (Chennai–Kolkata Highway)</div>
+    <div class="card">🏥 20 mins to KB Siddhartha Hospital</div>
+    <div class="card">🎓 20 mins to Usha Rama Engineering College</div>
+    <div class="card">🛒 25 mins to Hanuman Junction Town</div>
+    <div class="card">✈️ 30 mins to Gannavaram International Airport</div>
+    <div class="card">🏙️ 30 mins to Vijayawada City</div>
+    <div class="card">💼 30 mins to AHCL IT Hub</div>
+    <div class="card">🏢 30 mins to Medha IT Towers</div>
+    <div class="card">🍪 15 mins to Parle-G Biscuit Factory</div>
+    <div class="card">🧵 15 mins to Mohan Spintex Industries</div>
+    <div class="card">🎨 15 mins to Coromandel Paints</div>
+    <div class="card">🛠️ 15 mins to Vantage Spinners & Machine Tools Pvt. Ltd.</div>
+    <div class="card">🏛️ 20 mins to Swarna Bharat Trust</div>
+  </div>
+</section>
+
   <!-- WHY CHOOSE US -->
   <section id="why" class="section">
     <h2>Why Choose Green Gold Valley?</h2>
@@ -755,9 +893,26 @@
     </div>
   </section>
   <!-- FOOTER -->
-  <footer>
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>Sree Brunda Green Estates Pvt. Ltd.</h3>
+    <p class="tagline">Living The Life You Deserve...</p>
+
+    <div class="footer-details">
+      <p><strong>Office Address:</strong><br>
+        #40-9-87/2, House No: 22, 2nd Line, Sai Nagar,<br>
+        Near Benz Circle, Vijayawada - 520 008
+      </p>
+      <p>📧 <a href="mailto:sreebrundagreenestates@gmail.com">sreebrundagreenestates@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
     <p>© 2025 <a href="#home">Sree Brunda Projects</a> | All Rights Reserved</p>
-  </footer>
+  </div>
+</footer>
+
+
   <!-- SCRIPT -->
   <script>
     const toggle = document.getElementById('menu-toggle');

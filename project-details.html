@@ -239,6 +239,100 @@
         font-size: 1.1rem;
       }
     }
+
+    .site-footer {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.site-footer h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #c8e6c9;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #a5d6a7;
+  margin-bottom: 25px;
+}
+
+.footer-details p {
+  margin: 10px 0;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #e0f2f1;
+}
+
+.footer-details a {
+  color: #81c784;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-details a:hover {
+  color: #c8e6c9;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #4caf50;
+  padding-top: 20px;
+  font-size: 0.95rem;
+  color: #a5d6a7;
+}
+
+.footer-bottom a {
+  color: #a5d6a7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #e8f5e9;
+  text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-footer h3 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .footer-details p {
+    font-size: 0.95rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -304,9 +398,26 @@
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Sree Brunda Projects | All Rights Reserved
-  </footer>
+  <footer class="site-footer">
+  <div class="footer-content">
+    <h3>Sree Brunda Green Estates Pvt. Ltd.</h3>
+    <p class="tagline">Living The Life You Deserve...</p>
+
+    <div class="footer-details">
+      <p><strong>Office Address:</strong><br>
+        #40-9-87/2, House No: 22, 2nd Line, Sai Nagar,<br>
+        Near Benz Circle, Vijayawada - 520 008
+      </p>
+      <p>📧 <a href="mailto:sreebrundagreenestates@gmail.com">sreebrundagreenestates@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 <a href="#home">Sree Brunda Projects</a> | All Rights Reserved</p>
+  </div>
+</footer>
+
+
 
 <script>
   const form = document.getElementById('contact-form');
