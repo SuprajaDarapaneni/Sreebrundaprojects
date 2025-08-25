@@ -845,14 +845,56 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 50px; text-align: center;">
-      <a href="#contact" class="btn pulse" style="padding: 14px 32px; background-color: #28a745; color: white; border-radius: 6px; text-decoration: none; font-size: 1rem;">
-        Contact for Project Details
-      </a>
-  <a href="project-details.html" class="btn pulse" style="padding: 14px 32px; background-color: #28a745; color: white; border-radius: 6px; text-decoration: none; font-size: 1rem;">
-       More Project 
-      </a>
-    </div>
+ <!-- Add this inside your HTML <head> or in a separate CSS file -->
+<style>
+  .button-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    margin: 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Optional pulse animation */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+  }
+</style>
+
+<!-- Your updated buttons -->
+<div class="button-container">
+  <a href="#contact" class="btn pulse">Contact for Project Details</a>
+  <a href="project-details.html" class="btn pulse">More Project</a>
+</div>
+
   </section>
 
   <!-- Location -->
