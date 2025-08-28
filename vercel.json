@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "sreebrundaprojects.com"
+        }
+      ],
+      "destination": "https://www.sreebrundaprojects.com/$1",
+      "permanent": true
+    }
+  ]
+}
