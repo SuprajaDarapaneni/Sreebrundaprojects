@@ -557,7 +557,7 @@ body {
   min-height: 100px;
 }
 
-/* Hover Effect for All Cards */
+
 .card:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);

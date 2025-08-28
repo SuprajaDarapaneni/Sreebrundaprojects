@@ -138,7 +138,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   successMessage.style.display = 'none';
   errorMessage.style.display = 'none';
 
-  // Honeypot check
   if (honeypot !== '') {
     errorMessage.textContent = 'Spam detected. Please try again.';
     errorMessage.style.display = 'block';
@@ -168,3 +167,5 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     errorMessage.style.display = 'block';
   }
 });
+
+
