@@ -529,4 +529,60 @@ body {
     padding: 8px; /* Further reduced padding */
     font-size: 0.85rem; /* Even smaller font size */
   }
+
+}
+
+/* Cards (Used in Projects, Location, Why Sections) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch; /* Ensure same height for all cards */
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1 1 280px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 100px;
+}
+
+/* Hover Effect for All Cards */
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 90%;
+    font-size: 0.9rem;
+    padding: 16px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 95%;
+    font-size: 0.85rem;
+    padding: 14px;
+  }
 }
